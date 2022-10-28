@@ -41,7 +41,6 @@ class GMdoel extends \App\Model\Model
 
     private function contributeWhere(array $where)
     {
-        $condition = ['=', '!=', '<', '<=', '>', '>=', 'LIKE', 'NOT LIKE', '<>'];
         $model = new static();
         if (empty($where)) {
             return $model;
@@ -52,7 +51,7 @@ class GMdoel extends \App\Model\Model
             }
 
             $model = match ($v[1]) {
-                in_array($v[1], $condition) => $model->where($v[0], $v[1], $v[2]),
+                '=', '!=', '<', '<=', '>', '>=', 'LIKE', 'NOT LIKE', '<>' => $model->where($v[0], $v[1], $v[2]),
                 'IN' => $model->whereIn($v[0], $v[2]),
                 'NOT IN' => $model->whereNotIn($v[0], $v[2]),
                 'RAW' => $model->whereRaw($v[0], $v[2]),

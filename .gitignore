@@ -13,3 +13,4 @@ vendor/
 *.cache
 public/
 test/
+.php-cs-fixer.php

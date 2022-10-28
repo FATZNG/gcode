@@ -2,12 +2,11 @@
 
 declare(strict_types=1);
 /**
- * This file is part of Hyperf.
+ * This file is part of gcode.
  *
- * @link     https://www.hyperf.io
- * @document https://hyperf.wiki
- * @contact  group@hyperf.io
- * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
+ * @author   phpsarc
+ * @link     https://github.com/PHP2C/gcode
+ * @email    phpsarc@gmail.com
  */
 namespace App\Model;
 

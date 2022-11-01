@@ -8,11 +8,17 @@ declare(strict_types=1);
  * @link     https://github.com/PHP2C/gcode
  * @email    phpsarc@gmail.com
  */
-namespace App\Controller;
+namespace Gcode\Server\Guser\Controller;
 
-class IndexController extends AbstractController
+use App\Controller\AbstractController;
+use Hyperf\HttpServer\Annotation\Controller;
+use Hyperf\HttpServer\Annotation\GetMapping;
+
+#[Controller]
+class userController extends AbstractController
 {
-    public function index()
+    #[GetMapping('/usr/index')]
+    public function index(): array
     {
         $user = $this->request->input('user', 'Hyperf');
         $method = $this->request->getMethod();
@@ -21,5 +27,10 @@ class IndexController extends AbstractController
             'method' => $method,
             'message' => "Hello {$user}.",
         ];
+    }
+
+    public function addOrEditUser(): array
+    {
+        return [];
     }
 }

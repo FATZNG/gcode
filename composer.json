@@ -43,6 +43,7 @@
     },
     "autoload": {
         "psr-4": {
+            "Gcode\\Server\\Guser\\": "server/Guser/src",
             "App\\": "app/"
         },
         "files": []

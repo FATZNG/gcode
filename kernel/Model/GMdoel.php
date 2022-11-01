@@ -10,8 +10,6 @@ declare(strict_types=1);
  */
 namespace App\Kernel\Model;
 
-use Closure;
-
 class GMdoel extends \App\Model\Model
 {
     public function createOne(array $data)
@@ -46,7 +44,7 @@ class GMdoel extends \App\Model\Model
             return $model;
         }
         foreach ($where as $v) {
-            if ($v[0] instanceof Closure) {
+            if ($v[0] instanceof \Closure) {
                 $model = $model->where($v);
             }
 

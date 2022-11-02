@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3d7c524afec404eae41b0cfd58a90e36",
+    "content-hash": "10c694b16c989e578ee3b48539fb0ae2",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -1784,6 +1784,64 @@
                 "source": "https://github.com/hyperf/hyperf"
             },
             "time": "2022-05-30T02:16:40+00:00"
+        },
+        {
+            "name": "hyperf/paginator",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hyperf/paginator.git",
+                "reference": "45acff6623c65769949665d61e7af145082aea09"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hyperf/paginator/zipball/45acff6623c65769949665d61e7af145082aea09",
+                "reference": "45acff6623c65769949665d61e7af145082aea09",
+                "shasum": ""
+            },
+            "require": {
+                "hyperf/contract": "~3.0.0",
+                "hyperf/utils": "~3.0.0",
+                "php": ">=7.2"
+            },
+            "suggest": {
+                "hyperf/event": "Reqiured to use PageResolverListener.",
+                "hyperf/framework": "Reqiured to use PageResolverListener.",
+                "hyperf/http-server": "Reqiured to use PageResolverListener."
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                },
+                "hyperf": {
+                    "config": "Hyperf\\Paginator\\ConfigProvider"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hyperf\\Paginator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A paginator component for hyperf.",
+            "homepage": "https://hyperf.io",
+            "keywords": [
+                "hyperf",
+                "paginator",
+                "php"
+            ],
+            "support": {
+                "docs": "https://hyperf.wiki",
+                "issues": "https://github.com/hyperf/hyperf/issues",
+                "pull-request": "https://github.com/hyperf/hyperf/pulls",
+                "source": "https://github.com/hyperf/hyperf"
+            },
+            "time": "2022-11-01T02:50:54+00:00"
         },
         {
             "name": "hyperf/pool",
@@ -7219,6 +7277,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "hyperf/paginator": 20,
         "hyperf/watcher": 20
     },
     "prefer-stable": true,

@@ -41,9 +41,11 @@ class userController extends AbstractController
     #[GetMapping('/user/get')]
     public function addOrEditUser(): array
     {
-        $data = $this->user->getAllByWhere([]);
-        var_dump($data->item);
+        $data = $this->user->get([
+        ], ['ORDERBY' => 'id desc', 'PER' => 2, 'PAGE' => 1]);
+        var_dump($data);
         exit;
+
         return $data;
     }
 }

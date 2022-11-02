@@ -11,13 +11,22 @@ declare(strict_types=1);
 namespace Gcode\Server\Guser\Controller;
 
 use App\Controller\AbstractController;
+use Gcode\Server\Guser\Model\AuthMenu;
+use Gcode\Server\Guser\Model\User;
+use Hyperf\Di\Annotation\Inject;
 use Hyperf\HttpServer\Annotation\Controller;
 use Hyperf\HttpServer\Annotation\GetMapping;
 
 #[Controller]
 class userController extends AbstractController
 {
-    #[GetMapping('/usr/index')]
+    #[Inject]
+    protected AuthMenu $authMenu;
+
+    #[Inject]
+    protected User $user;
+
+    #[GetMapping('/user/index')]
     public function index(): array
     {
         $user = $this->request->input('user', 'Hyperf');
@@ -29,8 +38,12 @@ class userController extends AbstractController
         ];
     }
 
+    #[GetMapping('/user/get')]
     public function addOrEditUser(): array
     {
-        return [];
+        $data = $this->user->getAllByWhere([]);
+        var_dump($data->item);
+        exit;
+        return $data;
     }
 }

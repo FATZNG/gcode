@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cb605383297f918a683a5c41df4c96c7",
+    "content-hash": "3d7c524afec404eae41b0cfd58a90e36",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -2086,6 +2086,59 @@
                 "source": "https://github.com/hyperf/hyperf"
             },
             "time": "2022-11-01T02:50:54+00:00"
+        },
+        {
+            "name": "hyperf/watcher",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hyperf/watcher.git",
+                "reference": "1129171e78adac7240b27cb45578262d3235cebc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hyperf/watcher/zipball/1129171e78adac7240b27cb45578262d3235cebc",
+                "reference": "1129171e78adac7240b27cb45578262d3235cebc",
+                "shasum": ""
+            },
+            "require": {
+                "hyperf/command": "~3.0.0",
+                "hyperf/di": "~3.0.0",
+                "hyperf/framework": "~3.0.0",
+                "php": ">=8.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                },
+                "hyperf": {
+                    "config": "Hyperf\\Watcher\\ConfigProvider"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/Functions.php"
+                ],
+                "psr-4": {
+                    "Hyperf\\Watcher\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Hot reload watcher for Hyperf",
+            "keywords": [
+                "hyperf",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/hyperf/watcher/issues",
+                "source": "https://github.com/hyperf/watcher/tree/master"
+            },
+            "time": "2022-11-01T10:56:10+00:00"
         },
         {
             "name": "laminas/laminas-mime",
@@ -7165,7 +7218,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "hyperf/watcher": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

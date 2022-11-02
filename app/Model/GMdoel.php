@@ -8,21 +8,21 @@ declare(strict_types=1);
  * @link     https://github.com/PHP2C/gcode
  * @email    phpsarc@gmail.com
  */
-namespace App\Kernel\Model;
+namespace App\Model;
 
-class GMdoel extends \App\Model\Model
+class GMdoel extends Model
 {
-    public function createOne(array $data)
+    public function createOne(array $data): bool
     {
         return $this->insert($data);
     }
 
-    public function getOneByWhere(array $where, array $columns, array $options)
+    public function getOneByWhere(array $where, array $columns = ['*'], array $options = [])
     {
         return $this->contributeWhere($where)->contributeOption($options)->first($columns);
     }
 
-    public function getAllByWhere(array $where, array $columns, array $options)
+    public function getAllByWhere(array $where, array $columns = ['*'], array $options = [])
     {
         return $this->contributeWhere($where)->contributeOption($options)->get($columns);
     }
@@ -58,6 +58,7 @@ class GMdoel extends \App\Model\Model
                 'NOT NULL' => $model->whereNotNull($v[0], $v[2])
             };
         }
+        $this->dd($model);
         return $model;
     }
 

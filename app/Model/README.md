@@ -33,8 +33,17 @@ CREATE TABLE `gcode_auth_group` (
 
 ## 菜单表
 
-包含菜单id
-菜单路由
-菜单描述
-菜单等级
-菜单上级
+```msyql
+CREATE TABLE `gcode_auth_menu` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '菜单ID',
+  `icon` varchar(200) CHARACTER SET utf8 DEFAULT '#' COMMENT '菜单图标',
+  `name` varchar(200) CHARACTER SET utf8 DEFAULT '#' COMMENT '菜单名称',
+  `level` tinyint(1) DEFAULT '1' COMMENT '菜单层级 1-4 最高三级',
+  `route` varchar(300) CHARACTER SET utf8 DEFAULT NULL COMMENT '菜单路由',
+  `parent` int(11) DEFAULT '0' COMMENT '上级菜单',
+  `create_time` timestamp NULL DEFAULT NULL COMMENT '创建时间',
+  `status` int(1) NOT NULL DEFAULT '0',
+  `update_time` timestamp NULL DEFAULT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='权限表';
+```

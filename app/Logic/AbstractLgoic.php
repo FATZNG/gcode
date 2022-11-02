@@ -8,8 +8,8 @@ declare(strict_types=1);
  * @link     https://github.com/PHP2C/gcode
  * @email    phpsarc@gmail.com
  */
-return [
-    'http' => [
-        \Hyperf\Validation\Middleware\ValidationMiddleware::class
-    ],
-];
+namespace App\Logic;
+
+abstract class AbstractLgoic
+{
+}

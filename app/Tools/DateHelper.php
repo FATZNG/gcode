@@ -12,11 +12,12 @@ namespace App\Tools;
 
 class DateHelper
 {
-    public function dateFormat(string $format, int $time = 0): string
+    /**
+     * @param string $format default 'Y-m-d H:m:s'
+     */
+    public function dateFormat(string $format = 'Y-m-d H:m:s', int $time = 0): string
     {
-        if (empty($time)) {
-            $time = time();
-        }
-        return date('Y-m-d H:m:s', $time);
+        empty($time) && $time = time();
+        return date($format, $time);
     }
 }

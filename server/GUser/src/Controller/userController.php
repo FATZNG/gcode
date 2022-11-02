@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace Gcode\Server\Guser\Controller;
 
 use App\Controller\AbstractController;
+use Gcode\Server\Guser\Logic\UserLogic;
 use Gcode\Server\Guser\Model\AuthMenu;
 use Gcode\Server\Guser\Model\User;
 use Hyperf\Di\Annotation\Inject;
@@ -25,6 +26,9 @@ class userController extends AbstractController
 
     #[Inject]
     protected User $user;
+
+    #[Inject]
+    protected UserLogic $userLogic;
 
     #[GetMapping('/user/index')]
     public function index(): array
@@ -45,7 +49,8 @@ class userController extends AbstractController
         ], ['ORDERBY' => 'id desc', 'PER' => 2, 'PAGE' => 1]);
         var_dump($data);
         exit;
-
-        return $data;
     }
+
+    #[PostMapping('')]
+
 }

@@ -8,8 +8,8 @@ declare(strict_types=1);
  * @link     https://github.com/PHP2C/gcode
  * @email    phpsarc@gmail.com
  */
-namespace App\Logic;
+namespace Gcode\Server\Guser\Cache;
 
-abstract class AbstractLgoic
+class UserCacheKey
 {
 }

@@ -27,7 +27,7 @@ abstract class AbstractController
     #[Inject]
     protected ResponseInterface $response;
 
-    protected function resp(array $data = [], int $errcode = 0, string $msg = 'success'): string
+    protected static function resp(array $data = [], int $errcode = 0, string $msg = 'success'): string
     {
         return Json::encode([
             'data' => $data,

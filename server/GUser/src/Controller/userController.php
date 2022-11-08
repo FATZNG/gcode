@@ -14,9 +14,10 @@ use App\Controller\AbstractController;
 use Gcode\Server\Guser\Logic\UserLogic;
 use Gcode\Server\Guser\Model\AuthMenu;
 use Gcode\Server\Guser\Model\User;
+use Gcode\Server\Guser\Request\WebRegisterRequest;
 use Hyperf\Di\Annotation\Inject;
 use Hyperf\HttpServer\Annotation\Controller;
-use Hyperf\HttpServer\Annotation\GetMapping;
+use Hyperf\HttpServer\Annotation\PostMapping;
 
 #[Controller]
 class userController extends AbstractController
@@ -30,27 +31,11 @@ class userController extends AbstractController
     #[Inject]
     protected UserLogic $userLogic;
 
-    #[GetMapping('/user/index')]
-    public function index(): array
+    #[PostMapping('/user/register')]
+    public function webRegister(WebRegisterRequest $request): string
     {
-        $user = $this->request->input('user', 'Hyperf');
-        $method = $this->request->getMethod();
-
-        return [
-            'method' => $method,
-            'message' => "Hello {$user}.",
-        ];
+        $data = $request->validated();
+        $resp = $this->userLogic->webRegister($data);
+        return self::resp();
     }
-
-    #[GetMapping('/user/get')]
-    public function addOrEditUser(): array
-    {
-        $data = $this->user->get([
-        ], ['ORDERBY' => 'id desc', 'PER' => 2, 'PAGE' => 1]);
-        var_dump($data);
-        exit;
-    }
-
-    #[PostMapping('')]
-
 }

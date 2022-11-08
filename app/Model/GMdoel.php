@@ -74,6 +74,7 @@ class GMdoel extends Model
                     'ORDERBY' => $model->orderByRaw($v),
                     'SELECTRAW' => $model->selectRaw($v),
                     'WITH' => $model->with($v),
+                    'GROUPBY' => $model->groupBy($v),
                     'LIMIT' => $model->limit($v),
                     default => $model
                 };

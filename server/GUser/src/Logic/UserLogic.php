@@ -10,29 +10,15 @@ declare(strict_types=1);
  */
 namespace Gcode\Server\Guser\Logic;
 
-use Gcode\Server\Guser\Request\WebRegisterRequest;
-
 class UserLogic
 {
-    public function webRegister(WebRegisterRequest $request): bool
+    public function webRegister(array $data): bool
     {
-        $data = $request->validated();
-
         return true;
     }
 
-    public function genRandomName():string
+    public function genRandomName(): string
     {
         return '';
-    }
-
-    public function genRandomPsw():string
-    {
-        $i = 0;
-        while($i < 16){
-            $s = chr(mt_rand(33,126));
-            $i++;
-        }
-        return $s;
     }
 }

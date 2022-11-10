@@ -13,11 +13,13 @@ namespace Gcode\Server\Lazy\Controller;
 use App\Controller\AbstractController;
 use Fukuball\Jieba\Finalseg;
 use Fukuball\Jieba\Jieba;
+use Fukuball\Jieba\JiebaAnalyse;
 use Fukuball\Jieba\Posseg;
 use Gcode\Server\Lazy\Model\Book;
 use Hyperf\Di\Annotation\Inject;
 use Hyperf\HttpServer\Annotation\Controller;
 use Hyperf\HttpServer\Annotation\GetMapping;
+use Hyperf\HttpServer\Annotation\PostMapping;
 use Hyperf\Utils\Codec\Json;
 
 #[Controller]
@@ -28,16 +30,25 @@ class Lazy extends AbstractController
 
     public function __construct()
     {
-        ini_set('memory_limit', '1024M');
+        ini_set('memory_limit', '4096M');
         Jieba::init();
         Finalseg::init();
         Posseg::init();
     }
 
-    #[GetMapping('/lazy')]
+    #[PostMapping('/lazy')]
     public function setWords(): \Psr\Http\Message\ResponseInterface
     {
-        $book = 'ThreeKingdoms';
+        $book = request()->input('book');
+        if(empty($book)){
+            throw new \Exception('please input book`s name!');
+        }
+        $checkExist = $this->book->getByWhere([
+            ['book','=',trim($book)]
+        ]);
+        if(! empty($checkExist)){
+            throw new \Exception('book already exist!');
+        }
         $fileName = BASE_PATH . "/public/book/{$book}.txt";
         if (! file_exists($fileName)) {
             throw new \Exception('file not exist');
@@ -48,24 +59,15 @@ class Lazy extends AbstractController
             throw new \Exception('get file contents fail');
         }
 
-        $data = Posseg::cut($file);
-        $temp = [];
-        foreach ($data as $k => $v) {
-            if ($v['tag'] != 'n') {
-                unset($data[$k]);
-                continue;
-            }
-            $temp[] = $v['word'];
-        }
-        $temp = array_unique($temp);
-        $data = Json::encode($temp);
+        $data = JiebaAnalyse::extractTags($file,20_000);
+        $data = Json::encode($data);
 
         $data = $this->book->createOne(['book' => $book, 'content' => $data]);
 
         return self::resp([$data]);
     }
 
-    #[GetMapping('getw')]
+    #[PostMapping('getw')]
     public function getWords(): \Psr\Http\Message\ResponseInterface
     {
         $book = 'ThreeKingdoms';

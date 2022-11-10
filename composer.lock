@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "79b88c06153b36e2d097f8a9ab9a25c9",
+    "content-hash": "f8c93faf06d7032525c86237a00404cf",
     "packages": [
         {
             "name": "arokettu/random-polyfill",
@@ -487,6 +487,59 @@
                 "source": "https://github.com/php-fig/http-message-util/tree/1.1.5"
             },
             "time": "2020-11-24T22:02:12+00:00"
+        },
+        {
+            "name": "fukuball/jieba-php",
+            "version": "0.34",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fukuball/jieba-php.git",
+                "reference": "44d62bda8b80fe07ff59e8fc654f477685109a66"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fukuball/jieba-php/zipball/44d62bda8b80fe07ff59e8fc654f477685109a66",
+                "reference": "44d62bda8b80fe07ff59e8fc654f477685109a66",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">= 5.3"
+            },
+            "require-dev": {
+                "php-coveralls/php-coveralls": "dev-master",
+                "phpunit/phpunit": "~9.0",
+                "squizlabs/php_codesniffer": "4.0.x-dev"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/vendor/multi-array/MultiArray.php",
+                    "src/vendor/multi-array/Factory/MultiArrayFactory.php"
+                ],
+                "psr-4": {
+                    "Fukuball\\Jieba\\": "src/class/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "fukuball",
+                    "email": "fukuball@gmail.com"
+                }
+            ],
+            "description": "結巴中文分詞（PHP 版本）：做最好的 PHP 中文分詞、中文斷詞組件",
+            "keywords": [
+                "Jieba",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/fukuball/jieba-php/issues",
+                "source": "https://github.com/fukuball/jieba-php/tree/0.34"
+            },
+            "time": "2022-08-15T06:26:03+00:00"
         },
         {
             "name": "graham-campbell/result-type",
@@ -1316,7 +1369,7 @@
         },
         {
             "name": "hyperf/di",
-            "version": "v3.0.0-rc.13",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hyperf/di.git",
@@ -1341,6 +1394,7 @@
                 "ext-pcntl": "Required to scan annotations.",
                 "hyperf/config": "Require this component for annotation scan progress to retrieve the scan path."
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -7233,16 +7287,16 @@
         },
         {
             "name": "swoole/ide-helper",
-            "version": "5.0.0",
+            "version": "5.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swoole/ide-helper.git",
-                "reference": "939352ede9e8cddce96897d18b4fbd0c1e2110a3"
+                "reference": "f9cdf7bfb70ef3a8a2b8e9eb14ce3d09c02524fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swoole/ide-helper/zipball/939352ede9e8cddce96897d18b4fbd0c1e2110a3",
-                "reference": "939352ede9e8cddce96897d18b4fbd0c1e2110a3",
+                "url": "https://api.github.com/repos/swoole/ide-helper/zipball/f9cdf7bfb70ef3a8a2b8e9eb14ce3d09c02524fa",
+                "reference": "f9cdf7bfb70ef3a8a2b8e9eb14ce3d09c02524fa",
                 "shasum": ""
             },
             "type": "library",
@@ -7259,7 +7313,7 @@
             "description": "IDE help files for Swoole.",
             "support": {
                 "issues": "https://github.com/swoole/ide-helper/issues",
-                "source": "https://github.com/swoole/ide-helper/tree/5.0.0"
+                "source": "https://github.com/swoole/ide-helper/tree/5.0.1"
             },
             "funding": [
                 {
@@ -7271,7 +7325,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-08-10T05:32:06+00:00"
+            "time": "2022-11-08T07:13:40+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -7742,6 +7796,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "hyperf/di": 20,
         "hyperf/paginator": 20,
         "hyperf/validation": 20,
         "hyperf/watcher": 20
@@ -7749,7 +7804,9 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=8.1"
+        "php": ">=8.1",
+        "ext-iconv": "*",
+        "ext-random": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.2.0"

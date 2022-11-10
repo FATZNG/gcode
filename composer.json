@@ -13,13 +13,17 @@
     "license": "Apache-2.0",
     "require": {
         "php": ">=8.1",
+        "ext-iconv": "*",
+        "ext-random": "*",
         "arokettu/random-polyfill": "^1.0",
+        "fukuball/jieba-php": "^0.34.0",
         "guzzlehttp/guzzle": "7.5.0",
         "hyperf/cache": "~3.0.0",
         "hyperf/command": "~3.0.0",
         "hyperf/config": "~3.0.0",
         "hyperf/database": "~3.0.0",
         "hyperf/db-connection": "v3.0.0-rc.13",
+        "hyperf/di": "3.0.x-dev",
         "hyperf/framework": "~3.0.0",
         "hyperf/guzzle": "~3.0.0",
         "hyperf/http-server": "~3.0.0",
@@ -48,10 +52,13 @@
     },
     "autoload": {
         "psr-4": {
+            "App\\": "app/",
             "Gcode\\Server\\Guser\\": "server/Guser/src",
-            "App\\": "app/"
+            "Gcode\\Server\\Lazy\\": "server/Lazy/src"
         },
-        "files": []
+        "files": [
+            "app/Tools/Functions.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

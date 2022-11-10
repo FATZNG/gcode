@@ -8,13 +8,11 @@ declare(strict_types=1);
  * @link     https://github.com/PHP2C/gcode
  * @email    phpsarc@gmail.com
  */
-namespace App\Tools;
+namespace Gcode\Server\Lazy\Model;
 
-/**
- * 一个有用的懒狗工具类
- * 帮助你生成一个相应的文字类
- * 比如 ：不同风格的游戏名字自动生成.
- */
-class LazyDog
+use App\Model\GMdoel;
+
+class Book extends GMdoel
 {
+    protected ?string $table = 'book';
 }

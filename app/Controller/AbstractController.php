@@ -13,7 +13,6 @@ namespace App\Controller;
 use Hyperf\Di\Annotation\Inject;
 use Hyperf\HttpServer\Contract\RequestInterface;
 use Hyperf\HttpServer\Contract\ResponseInterface;
-use Hyperf\Utils\Codec\Json;
 use Psr\Container\ContainerInterface;
 
 abstract class AbstractController
@@ -27,9 +26,9 @@ abstract class AbstractController
     #[Inject]
     protected ResponseInterface $response;
 
-    protected static function resp(array $data = [], int $errcode = 0, string $msg = 'success'): string
+    protected static function resp(mixed $data = [], int $errcode = 0, string $msg = 'success')
     {
-        return Json::encode([
+        return response()->json([
             'data' => $data,
             'code' => $errcode,
             'msg' => $msg,
